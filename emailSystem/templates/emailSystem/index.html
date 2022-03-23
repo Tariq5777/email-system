@@ -1,0 +1,32 @@
+{% extends "emailSystem/layout.html" %}
+
+{% block body %}
+
+<form action="{% url 'sendMail' %}" method="POST" >
+    {% csrf_token %}
+    <div class="mb-3">
+        <input
+            type="email"
+            class="form-control"
+            id="recipientEmail"
+            placeholder="Recipients Email"
+            name="recipientEmail"
+        />
+    </div>
+    <div class="mb-3">
+        <input
+            type="text"
+            class="form-control"
+            id="subject"
+            placeholder="Subject"
+            name="subject"
+        />
+    </div>
+    <div class="mb-3">
+        <textarea class="form-control" placeholder="Message" id="message" name="message" style="height: 100px;"></textarea>
+        
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock%}
